@@ -10,14 +10,14 @@ KERNEL_DIR="$(pwd)"
 
 ##----------------------------------------------------------##
 # Device Name and Model
-MODEL=Xiaomi
-DEVICE=Lavender
+MODEL=lineage
+DEVICE=m52xq
 
 # Kernel Version Code
 VERSION=X1
 
 # Kernel Defconfig
-DEFCONFIG=lavender_defconfig
+DEFCONFIG=m52xq_defconfig
 
 # Files
 IMAGE=$(pwd)/out/arch/arm64/boot/Image.gz-dtb
@@ -35,7 +35,7 @@ DATE=$(TZ=Asia/Kolkata date +"%Y%m%d-%T")
 TANGGAL=$(date +"%F%S")
 
 # Specify Final Zip Name
-ZIPNAME=Nexus
+ZIPNAME=qgki
 FINAL_ZIP=${ZIPNAME}-${VERSION}-${DEVICE}-Kernel-${TANGGAL}.zip
 
 ##----------------------------------------------------------##
