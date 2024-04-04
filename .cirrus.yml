@@ -1,18 +1,15 @@
 env:
-    token: "ENCRYPTED[91aa86249a2b8217c4416fd0688d5f96bd0f1c00043f546a4c588cc41f1e1e9233082dbd36ac2f5624e3843ff1136e63]"
-    my_og_token: "ENCRYPTED[31d304746413c1c4375518b3b9892b87193c4e299d2f233977c32aef14ab352fafd383d77ea4c426c09c30ecb631def0]"
-    chat_id: "ENCRYPTED[271123886e84714e0f103ef02e04c0e8f59d20e429fb1c0f118b20bf88b4a98f966b095e487c0ba21ceb314215d0b060]"
-    
+    token: "ENCRYPTED[1525b6bbd832cca891fca78cf804b33957d259f5517479cdd8fc997ce6a8943a733f678e66fba88bc082b963ff59ea00]"
+    chat_id: "ENCRYPTED[ac707f7fef2e67dabdeb561c4454979509cc41d2f146909ff76650db052749082b24bde8aea6971474fec67c1a432d3d]"
+
 task:
-  name: "Kernel deploy.."
-  timeout_in: 120m
+  name: "Nexus-Kernel-Builder"
+  timeout_in: 2h
   container:
-      image: nexgang/ubuntu:latest
-      cpu: 4
-      memory: 16G
-      stateful: true
-      greedy: true
+      image: ghcr.io/neutron-projects/docker-image:arch-neutron
+      cpu: 8
+      memory: 32G
 
   Build_script:
-      - git clone --depth=1 -b oshi https://Prashant-1695:$my_og_token@github.com/Prashant-1695/kernel_xiaomi_lavender-4.19 lv && cd lv
-      - /noclone3 bash build.sh
+      - ln -fs /usr/share/zoneinfo/Asia/Dhaka /etc/localtime && date
+      - bash setup.sh
